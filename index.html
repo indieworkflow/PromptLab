@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <title>PromptLab</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f1115">
+</head>
+<body>
+
+  <nav class="navbar">
+
+  <!-- LEFT: logo -->
+  <a href="#hero" class="nav-left">
+
+  <img src="images/favicon.png" class="logo" alt="PromptLab logo">
+  <span class="brand">PromptLab</span>
+
+  </a>
+
+  <!-- RIGHT: links -->
+  <div class="nav-right">
+    <a href="#about">About</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#feedback">Feedback</a>
+  </div>
+
+</nav>
+
+  <div class="hero" id="hero">
+
+  <h1>PromptLab</h1>
+
+  <p class="hero-subtitle">
+    Build structured, high-quality AI prompts in seconds.<br/>
+    Turn simple ideas into powerful instructions for AI tools.
+  </p>
+
+  <button class="hero-btn" onclick="scrollToGenerator()">
+    Try It Now
+  </button>
+
+</div>
+
+<section class="about" id="about">
+
+  <h2>What is PromptLab?</h2>
+
+  <p class="about-text">
+    PromptLab is a simple but powerful tool that helps you turn messy ideas into structured, high-quality AI prompts.
+    Instead of guessing how to talk to AI, you get a clear framework that improves your results instantly.
+  </p>
+
+  <div class="about-grid">
+
+    <div class="about-card">
+      <h3>⚡ Faster Results</h3>
+      <p>Create optimized prompts in seconds instead of thinking for minutes.</p>
+    </div>
+
+    <div class="about-card">
+      <h3>🧠 Better Structure</h3>
+      <p>Turn simple ideas into clear AI instructions with professional format.</p>
+    </div>
+
+    <div class="about-card">
+      <h3>🚀 More Control</h3>
+      <p>Choose role, tone, style and complexity for better AI output.</p>
+    </div>
+
+  </div>
+
+</section>
+
+  <div class="container" id="generator">
+
+    <h1>PromptLab</h1>
+    <p class="subtitle">Build structured AI prompts in seconds</p>
+
+    <div class="card">
+
+      <div id="planBanner"></div>
+
+      <div class="auth-box">
+  <p class="auth-title">PRO Access</p>
+
+  <p class="auth-text">
+    Purchased PromptLab PRO? Log in with the same email you used during checkout
+    to unlock your subscription.
+  </p>
+
+  <input
+    id="email"
+    type="email"
+    placeholder="Enter your purchase email"
+  />
+
+  <div class="auth-buttons">
+    <button id="loginBtn" class="auth-btn" onclick="handleLogin()">
+      Login
+    </button>
+
+    <button
+      id="logoutBtn"
+      class="auth-btn logout-btn"
+      onclick="logout()"
+      style="display:none;"
+    >
+      Log out
+    </button>
+  </div>
+</div>
+
+      <button class="clear-generator-btn" onclick="resetGenerator()">
+      New Prompt
+      </button>
+
+      <label>Input idea</label> 
+      <textarea id="idea" placeholder="e.g. Create a marketing plan for a fitness app"></textarea>
+
+      <div class="grid">
+
+        <div class="mode-wrapper">
+
+  <label class="mode-label">
+    Prompt Mode
+    <span class="pro-badge">PRO</span>
+  </label>
+
+  <select id="mode">
+
+    <option value="General">General</option>
+
+    <option value="Marketing">
+      🔒 Marketing
+    </option>
+
+    <option value="Business">
+      🔒 Business
+    </option>
+
+    <option value="Content">
+      🔒 Content
+    </option>
+
+  </select>
+
+  <p class="mode-note">
+    Advanced modes available in PRO version
+  </p>
+
+</div>
+
+<div class="template-wrapper" id="templateWrapper">
+
+  <label class="template-label">
+    Templates
+    <span class="pro-badge">PRO</span>
+  </label>
+
+  <select id="template" onchange="applyTemplate()">
+
+  <option value="" disabled selected class="placeholder-option">
+    Choose Template
+  </option>
+
+  <option value="tiktok">🔒 Viral TikTok Script</option>
+  <option value="landing">🔒 Startup Landing Page</option>
+  <option value="growth">🔒 Business Growth Plan</option>
+  <option value="youtube">🔒 YouTube Script</option>
+  <option value="instagram">🔒 Instagram Ad Generator</option>
+
+  <option value="product">🔒 Product Description</option>
+  <option value="email">🔒 Email Marketing Campaign</option>
+  <option value="thread">🔒 Twitter/X Thread</option>
+  <option value="blog">🔒 SEO Blog Outline</option>
+  <option value="cold">🔒 Cold Outreach Message</option>
+
+  <option value="adcopy">🔒 Ad Copy Variations</option>
+  <option value="pitch">🔒 Startup Pitch Idea</option>
+  <option value="app">🔒 App Idea Generator</option>
+  <option value="resume">🔒 Resume Bullet Points</option>
+  <option value="value">🔒 Value Proposition</option>
+
+  <option value="hook">🔒 Hook Generator</option>
+  <option value="case">🔒 Case Study Generator</option>
+  <option value="scriptlong">🔒 Long YouTube Script</option>
+  <option value="ads3">🔒 3 Ad Variations Pack</option>
+  <option value="strategy">🔒 Full Marketing Strategy</option>
+
+</select>
+
+  <p class="template-note">
+    Pre-built prompt systems available in PRO version
+  </p>
+
+</div>
+
+        <div>
+          <label>Role</label>
+          <select id="role">
+            <option>Marketing Expert</option>
+            <option>Copywriter</option>
+            <option>Business Strategist</option>
+            <option>AI Consultant</option>
+            <option>Startup Founder</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Tone</label>
+          <select id="tone">
+            <option>Professional</option>
+            <option>Aggressive</option>
+            <option>Luxury</option>
+            <option>Friendly</option>
+            <option>Direct</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Output Style</label>
+          <select id="style">
+            <option>Bullet Points</option>
+            <option>Step-by-step Plan</option>
+            <option>Table Format</option>
+            <option>Twitter Thread</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Complexity</label>
+          <select id="complexity">
+            <option>Simple</option>
+            <option>Medium</option>
+            <option>Advanced</option>
+          </select>
+        </div>
+
+      </div>
+
+      <button onclick="generatePrompt()">Generate Prompt</button>
+
+    </div>
+
+    <div class="card output">
+
+      <h2>Generated Prompt</h2>
+      <pre id="result">Your prompt will appear here...</pre>
+
+      <button onclick="copyPrompt(event)">Copy Prompt</button>
+
+    </div>
+
+  </div>
+
+  <div class="disclaimer">
+
+  <p>
+    Disclaimer: PromptLab generates AI prompts — results depend on input and model used.
+  </p>
+
+  </div>
+
+  <section class="comparison" id="comparison">
+
+  <h2>See the difference</h2>
+  <p class="comparison-subtitle">
+    Same input. Completely different output quality.
+  </p>
+
+  <div class="comparison-grid">
+
+    <!-- FREE -->
+    <div class="comparison-card free">
+
+      <h3>FREE OUTPUT</h3>
+
+      <div class="prompt-box">
+
+        <p><strong>ROLE:</strong> Marketing Expert</p>
+        <p><strong>TASK:</strong> Create viral TikTok for fitness app</p>
+        <p><strong>TONE:</strong> Professional</p>
+        <p><strong>OUTPUT STYLE:</strong> Bullet Points</p>
+        <p><strong>COMPLEXITY:</strong> Simple</p>
+
+        <hr>
+
+        <p><strong>OUTPUT:</strong></p>
+        <p>- Simple structured response</p>
+
+      </div>
+
+    </div>
+
+    <!-- PRO -->
+    <div class="comparison-card pro">
+
+      <h3>PRO OUTPUT</h3>
+
+      <div class="prompt-box pro-box">
+
+        <p><strong>ROLE:</strong> Marketing Expert</p>
+        <p><strong>TASK:</strong> Create viral TikTok for fitness app</p>
+        <p><strong>MODE:</strong> General</p>
+
+        <hr>
+
+        <p><strong>OUTPUT FORMAT:</strong></p>
+        <p>1. HOOK</p>
+        <p>2. STRATEGY</p>
+        <p>3. SCRIPT</p>
+        <p>4. VARIATIONS</p>
+        <p>5. CTA</p>
+
+        <hr>
+
+        <p><strong>PSYCHOLOGY:</strong></p>
+        <p>- Why it works</p>
+        <p>- Engagement triggers</p>
+        <p>- Viral mechanics</p>
+
+        <hr>
+
+        <p><strong>INSTRUCTIONS:</strong></p>
+        <p>- Be highly structured</p>
+        <p>- Avoid generic answers</p>
+        <p>- Focus on real-world use</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="pricing" id="pricing">
+
+  <h2>Pricing</h2>
+  <p class="pricing-subtitle">
+    Flexible pricing. Upgrade when you need more.
+  </p>
+
+  <div class="pricing-grid">
+
+    <!-- FREE -->
+    <div class="price-card">
+
+      <h3>FREE</h3>
+      <h1>€0</h1>
+
+      <ul>
+        <li>Basic prompt builder</li>
+        <li>1 mode (General)</li>
+        <li>Standard output</li>
+      </ul>
+
+      <button id="freeBtn" class="free-btn" onclick="scrollToGenerator()">
+        Use Free
+      </button>
+
+    </div>
+
+    <!-- PRO -->
+    <div class="price-card pro">
+
+      <h3>PRO</h3>
+      <h1>€3.99</h1>
+      <p class="small-text">€3.99 / month</p>
+
+      <ul>
+        <li>All modes unlocked</li>
+        <li>20 prompt templates</li>
+        <li>Advanced prompt structuring</li>
+        <li>Optimized AI outputs</li>
+        <li>Cancel anytime</li>
+      </ul>
+
+      <button id="pricingBtn" class="pro-btn" onclick="goToGumroad()">
+        Upgrade to PRO
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="faq" id="faq">
+
+  <h2>FAQ</h2>
+  <p class="faq-subtitle">Quick answers to common questions</p>
+
+  <div class="faq-item">
+    <h3>Is PromptLab free?</h3>
+    <p>Yes. The free version includes a basic prompt builder with limited features.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Do I need an account?</h3>
+    <p>No. PromptLab runs directly in your browser without sign-up.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Is PRO a subscription?</h3>
+    <p>Yes. PRO is a flexible monthly subscription. You can cancel anytime.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How does PromptLab work?</h3>
+    <p>You enter a simple idea, select options like role, tone and style, and PromptLab transforms it into a structured AI prompt optimized for tools like ChatGPT and other AI models.</p>
+  </div>
+
+</section>
+
+<section class="faq" id="feedback">
+
+  <h2>Feedback</h2>
+
+  <p class="faq-subtitle">
+    Your feedback helps us improve PromptLab.
+  </p>
+
+  <div class="faq-item">
+
+    <h3>Have an idea or found a bug?</h3>
+
+    <p>
+      We'd love to hear your suggestions and feedback.
+      Click the button below to submit your feedback.
+    </p>
+
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSd75T4STK1vsoGiYykCqovrbNzhLY9-QmT2btrJv0OlDbH6eg/viewform"
+      target="_blank"
+      class="hero-btn"
+      style="margin-top:20px; display:inline-block; width:auto;"
+    >
+      Leave Feedback
+    </a>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <div class="footer-content">
+
+    <p class="footer-brand">
+      Built by <a href="https://indieworkflow.github.io/" target="_blank" rel="noopener noreferrer">IndieWorkflow</a>
+    </p>
+
+    <p class="footer-copy">
+      PromptLab © 2026 — All rights reserved.
+    </p>
+
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+
+    <br>
+
+    <a href="https://instagram.com/indieworkflow" target="_blank">
+      Need help? Contact us on Instagram @indieworkflow
+    </a>
+
+  </div>
+
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+  </script>
+</body>
+</html>
