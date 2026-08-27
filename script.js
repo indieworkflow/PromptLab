@@ -656,7 +656,7 @@ async function login(email) {
   const { data, error } = await supabaseClient.auth.signInWithOtp({
     email: email,
     options: {
-      emailRedirectTo: "http://localhost:5500"
+      emailRedirectTo: "https://indieworkflow.github.io/PromptLab/"
     }
   });
 
