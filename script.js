@@ -778,16 +778,20 @@ async function checkProStatus(email) {
 
   const { data, error } = await supabaseClient
     .from("users")
-    .select("pro")
+    .select("email, pro")
     .eq("email", email)
     .maybeSingle();
 
+  console.log("PRO DATABASE DATA:", data);
+  console.log("PRO DATABASE ERROR:", error);
+
   if (error) {
-    console.error(error);
+    console.error("PRO CHECK ERROR:", error);
     return false;
   }
 
   if (!data) {
+    console.log("NO USER FOUND IN DATABASE");
     return false;
   }
 
