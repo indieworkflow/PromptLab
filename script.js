@@ -4,12 +4,14 @@
 let isPro = localStorage.getItem("pro") === "true";
 
 function refreshProState() {
-  isPro = localStorage.getItem("pro") === "true";
 
   updateModeAccess();
   updateTemplateAccess();
   renderPlanBanner();
   updateTemplateLabels();
+  updatePricingButton();
+  updateFreeButton();
+
 }
 
 // -----------------------------
@@ -706,7 +708,7 @@ async function logout(){
 
     isPro=false;
 
-    updatePlanBanner();
+    refreshProState();
 
 }
 
