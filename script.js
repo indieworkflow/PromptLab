@@ -572,6 +572,12 @@ function generatePrompt() {
   }
 
   document.getElementById("result").innerText = prompt;
+
+  // Scroll to generated prompt
+document.querySelector(".output").scrollIntoView({
+  behavior: "smooth",
+  block: "start"
+});
 }
 
 // -----------------------------

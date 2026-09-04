@@ -589,6 +589,10 @@ button:hover {
   word-break: break-word;
 }
 
+.output {
+  scroll-margin-top: 200px;
+}
+
 .disclaimer {
   max-width: 700px;
   margin: 15px auto 0;
