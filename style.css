@@ -894,24 +894,35 @@ button:hover {
     scroll-padding-top: 80px;
   }
 
+  /* NAVBAR */
+
   .navbar {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
-    padding: 12px 16px;
+    padding: 14px 16px;
   }
 
   .nav-right {
-    gap: 12px;
+    gap: 16px;
     flex-wrap: nowrap;
     overflow-x: auto;
     white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .nav-right::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-right a {
-    font-size: 12px;
+    font-size: 14px;
+    padding: 8px 2px;
   }
+
+
+  /* HERO */
 
   .hero {
     height: auto;
@@ -930,6 +941,9 @@ button:hover {
     width: 100%;
   }
 
+
+  /* ABOUT */
+
   .about {
     height: auto;
     padding: 80px 16px;
@@ -939,12 +953,31 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
+
+  /* PRICING */
+
   .pricing-grid {
     grid-template-columns: 1fr;
   }
+
+
+  /* FAQ */
 
   .faq {
     height: auto;
   }
 
+
+  /* FOOTER */
+
+  footer {
+    padding: 30px 16px;
+    text-align: center;
+  }
+
+  footer a {
+    font-size: 14px;
+    margin: 6px 8px;
+    display: inline-block;
+  }
 }
