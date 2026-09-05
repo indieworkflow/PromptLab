@@ -573,6 +573,9 @@ function generatePrompt() {
 
   document.getElementById("result").innerText = prompt;
 
+  // GA4 event
+  gtag("event", "prompt_generated");
+
   // Scroll to generated prompt
 document.querySelector(".output").scrollIntoView({
   behavior: "smooth",
