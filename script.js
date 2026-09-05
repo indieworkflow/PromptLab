@@ -661,6 +661,12 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 async function login(email) {
+
+  const loginBtn = document.getElementById("loginBtn");
+
+  loginBtn.disabled = true;
+  loginBtn.classList.add("loading");
+
   const { data, error } = await supabaseClient.auth.signInWithOtp({
     email: email,
     options: {
@@ -668,11 +674,14 @@ async function login(email) {
     }
   });
 
+  loginBtn.disabled = false;
+  loginBtn.classList.remove("loading");
+
   if (error) {
     console.error(error);
     alert("Login error");
   } else {
-    alert("Check your email for login link");
+    alert("Check your email for the login link. After signing in, PromptLab will open in your browser.");
   }
 }
 
