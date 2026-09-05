@@ -630,6 +630,10 @@ function updateFreeButton() {
 // GUMROAD
 // -----------------------------
 function goToGumroad() {
+
+  // GA4 event
+  gtag("event", "gumroad_click");
+
   window.open("https://indieworkflow.gumroad.com/l/mepjrp", "_blank");
 }
 
