@@ -898,6 +898,29 @@ button:hover {
   color: #ffffff;
 }
 
+.footer-social a {
+display: inline-flex;
+align-items: center;
+gap: 7px;
+}
+
+.instagram-icon {
+width: 18px;
+height: 18px;
+fill: none;
+stroke: currentColor;
+stroke-width: 2;
+}
+
+.instagram-icon circle:last-child {
+fill: currentColor;
+stroke: none;
+}
+
+.footer-support {
+margin-top: 8px;
+}
+
 .back-home-btn {
   display: inline-block;
   margin-top: 40px;
