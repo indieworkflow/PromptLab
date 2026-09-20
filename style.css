@@ -814,43 +814,75 @@ button:hover {
 }
 
 .faq {
-  height: 100vh;
+
+  min-height: 100vh;
+
   max-width: 800px;
+
   margin: 80px auto;
-  padding: 200px 20px;
+
+  padding: 120px 20px 80px;
+
   text-align: center;
+
+  box-sizing: border-box;
+
+  scroll-margin-top: 80px;
+
 }
 
 .faq h2 {
+
   font-size: 32px;
+
   margin-bottom: 10px;
+
 }
 
 .faq-subtitle {
+
   color: rgba(255,255,255,0.6);
+
   margin-bottom: 30px;
+
 }
 
 .faq-item {
+
   background: #171a21;
+
   padding: 20px;
+
   border-radius: 12px;
+
   margin-bottom: 15px;
+
   text-align: left;
+
   border: 1px solid rgba(255,255,255,0.05);
+
 }
 
 .faq-item h3 {
+
   margin: 0 0 8px 0;
+
   font-size: 16px;
+
   color: white;
+
 }
 
 .faq-item p {
+
   margin: 0;
+
   font-size: 14px;
+
   color: rgba(255,255,255,0.65);
+
   line-height: 1.5;
+
 }
 
 .footer {
